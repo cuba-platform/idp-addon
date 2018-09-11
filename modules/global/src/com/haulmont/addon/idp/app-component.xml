@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<app-component xmlns="http://schemas.haulmont.com/cuba/app-component.xsd"
+               dependsOn="com.haulmont.cuba">
+    <module blocks="*"
+            name="global">
+        <artifact appJar="true"
+                  name="idp-global"/>
+        <property name="cuba.persistenceConfig"
+                  value="+com/haulmont/addon/idp/persistence.xml"/>
+        <property name="cuba.metadataConfig"
+                  value="+com/haulmont/addon/idp/metadata.xml"/>
+        <property name="cuba.viewsConfig"
+                  value="+com/haulmont/addon/idp/views.xml"/>
+    </module>
+    <module blocks="core"
+            dependsOn="global"
+            name="core">
+        <artifact appJar="true"
+                  name="idp-core"/>
+        <property name="cuba.springContextConfig"
+                  value="+com/haulmont/addon/idp/spring.xml"/>
+        <property name="cuba.mainMessagePack"
+                  value="+com.haulmont.addon.idp.core"/>
+    </module>
+    <module blocks="web"
+            dependsOn="global"
+            name="web">
+        <artifact appJar="true"
+                  name="idp-web"/>
+        <artifact classifier="web"
+                  configuration="webcontent"
+                  ext="zip"
+                  name="idp-web"/>
+        <property name="cuba.springContextConfig"
+                  value="+com/haulmont/addon/idp/web-spring.xml"/>
+        <property name="cuba.dispatcherSpringContextConfig"
+                  value="+com/haulmont/addon/idp/web-dispatcher-spring.xml"/>
+        <property name="cuba.windowConfig"
+                  value="+com/haulmont/addon/idp/web-screens.xml"/>
+        <property name="cuba.menuConfig"
+                  value="+com/haulmont/addon/idp/web-menu.xml"/>
+        <property name="cuba.permissionConfig"
+                  value="+com/haulmont/addon/idp/web-permissions.xml"/>
+        <property name="cuba.mainMessagePack"
+                  value="+com.haulmont.addon.idp.web"/>
+    </module>
+</app-component>
