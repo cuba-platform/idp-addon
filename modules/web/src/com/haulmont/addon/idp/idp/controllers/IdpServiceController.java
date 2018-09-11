@@ -16,10 +16,10 @@
 
 package com.haulmont.addon.idp.idp.controllers;
 
-import com.haulmont.addon.idp.IdpConfig;
-import com.haulmont.addon.idp.sys.IdpServiceLogoutCallbackInvoker;
-import com.haulmont.cuba.security.global.IdpSession;
-import com.haulmont.cuba.security.idp.IdpService;
+import com.haulmont.addon.idp.idp.config.IdpConfig;
+import com.haulmont.addon.idp.idp.sys.IdpServiceLogoutCallbackInvoker;
+import com.haulmont.addon.idp.security.IdpService;
+import com.haulmont.addon.idp.security.global.IdpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

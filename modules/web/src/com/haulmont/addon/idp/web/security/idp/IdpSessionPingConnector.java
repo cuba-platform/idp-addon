@@ -20,7 +20,6 @@ import com.haulmont.cuba.core.global.UserSessionSource;
 import com.haulmont.cuba.security.auth.AuthenticationService;
 import com.haulmont.cuba.security.global.NoUserSessionException;
 import com.haulmont.cuba.security.global.UserSession;
-import com.haulmont.cuba.web.security.idp.WebIdpConfig;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;

@@ -16,14 +16,13 @@
 
 package com.haulmont.addon.idp.security;
 
+import com.haulmont.addon.idp.security.global.IdpSession;
 import com.haulmont.cuba.core.app.ClusterListener;
 import com.haulmont.cuba.core.app.ClusterListenerAdapter;
 import com.haulmont.cuba.core.app.ClusterManagerAPI;
 import com.haulmont.cuba.core.global.TimeSource;
 import com.haulmont.cuba.core.global.UuidSource;
 import com.haulmont.cuba.core.sys.AppContext;
-import com.haulmont.cuba.security.global.IdpSession;
-import com.haulmont.cuba.security.idp.IdpSessionStore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -38,7 +37,8 @@ import java.util.stream.Collectors;
 
 @Component(IdpSessionStore.NAME)
 public class IdpSessionStoreBean implements IdpSessionStore {
-    private static final Logger log = LoggerFactory.getLogger(com.haulmont.cuba.security.idp.IdpSessionStoreBean.class);
+
+    private static final Logger log = LoggerFactory.getLogger(IdpSessionStoreBean.class);
 
     @GuardedBy("lock")
     protected Map<String, IdpSessionRecord> sessions = new HashMap<>();

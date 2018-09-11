@@ -17,7 +17,7 @@
 package com.haulmont.addon.idp.idp.sys;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.haulmont.addon.idp.IdpConfig;
+import com.haulmont.addon.idp.idp.config.IdpConfig;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;

@@ -17,7 +17,7 @@
 package com.haulmont.addon.idp;
 
 import com.google.gson.Gson;
-import com.haulmont.cuba.security.global.IdpSession;
+import com.haulmont.addon.idp.security.global.IdpSession;
 import org.junit.Test;
 
 import java.util.HashMap;

@@ -16,8 +16,8 @@
 
 package com.haulmont.addon.idp.security;
 
+import com.haulmont.addon.idp.security.global.IdpSession;
 import com.haulmont.cuba.security.auth.Credentials;
-import com.haulmont.cuba.security.global.IdpSession;
 import com.haulmont.cuba.security.global.LoginException;
 
 import javax.annotation.Nonnull;
@@ -30,6 +30,7 @@ import java.util.Map;
  * Provides session storage for IDP web service.
  */
 public interface IdpService {
+
     String NAME = "cuba_IdpService";
 
     String IDP_USER_SESSION_ATTRIBUTE = "idpSessionId";
@@ -118,6 +119,7 @@ public interface IdpService {
     List<String> processEviction(int sessionExpirationTimeoutSec, int ticketExpirationTimeoutSec);
 
     class IdpLoginResult implements Serializable {
+
         private String sessionId;
         private String serviceProviderTicket;
 

@@ -19,18 +19,14 @@ package com.haulmont.addon.idp.web.security.idp;
 import com.google.common.base.Strings;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import com.haulmont.addon.idp.security.global.IdpSession;
 import com.haulmont.bali.util.URLEncodeUtils;
 import com.haulmont.cuba.core.global.GlobalConfig;
 import com.haulmont.cuba.core.sys.SecurityContext;
 import com.haulmont.cuba.security.app.TrustedClientService;
-import com.haulmont.cuba.security.global.IdpSession;
 import com.haulmont.cuba.security.global.LoginException;
 import com.haulmont.cuba.security.global.UserSession;
 import com.haulmont.cuba.web.auth.WebAuthConfig;
-import com.haulmont.cuba.web.security.idp.IdpActivationException;
-import com.haulmont.cuba.web.security.idp.IdpServletRequestWrapper;
-import com.haulmont.cuba.web.security.idp.IdpSessionPrincipalImpl;
-import com.haulmont.cuba.web.security.idp.WebIdpConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
@@ -60,12 +56,12 @@ import java.util.Arrays;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import static com.haulmont.addon.idp.web.security.idp.IdpSessionPrincipal.*;
 import static com.haulmont.cuba.core.sys.AppContext.withSecurityContext;
-import static com.haulmont.cuba.web.security.idp.IdpSessionPrincipal.*;
 
 public abstract class BaseIdpSessionFilter implements Filter {
 
-    private static final Logger log = LoggerFactory.getLogger(com.haulmont.cuba.web.security.idp.BaseIdpSessionFilter.class);
+    private static final Logger log = LoggerFactory.getLogger(BaseIdpSessionFilter.class);
 
     protected Lock sessionCheckLock = new ReentrantLock();
 

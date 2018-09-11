@@ -16,8 +16,6 @@
 
 package com.haulmont.addon.idp.web.security.idp;
 
-import com.haulmont.cuba.web.security.idp.IdpSessionPrincipalImpl;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import java.security.Principal;

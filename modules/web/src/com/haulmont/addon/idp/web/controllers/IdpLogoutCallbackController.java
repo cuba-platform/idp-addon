@@ -17,14 +17,14 @@
 package com.haulmont.addon.idp.web.controllers;
 
 import com.google.common.base.Strings;
+import com.haulmont.addon.idp.security.IdpService;
+import com.haulmont.addon.idp.web.security.idp.WebIdpConfig;
 import com.haulmont.cuba.core.sys.AppContext;
 import com.haulmont.cuba.core.sys.SecurityContext;
 import com.haulmont.cuba.security.app.TrustedClientService;
 import com.haulmont.cuba.security.global.LoginException;
 import com.haulmont.cuba.security.global.UserSession;
-import com.haulmont.cuba.security.idp.IdpService;
 import com.haulmont.cuba.web.auth.WebAuthConfig;
-import com.haulmont.cuba.web.security.idp.WebIdpConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

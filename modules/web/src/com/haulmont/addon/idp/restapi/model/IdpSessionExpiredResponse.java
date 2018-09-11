@@ -18,8 +18,8 @@ package com.haulmont.addon.idp.restapi.model;
 
 public class IdpSessionExpiredResponse {
 
-    private String error;
-    private String location;
+    protected String error;
+    protected String location;
 
     public IdpSessionExpiredResponse() {
     }

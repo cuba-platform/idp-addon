@@ -18,8 +18,6 @@ package com.haulmont.addon.idp.web.security.idp;
 
 import com.haulmont.cuba.core.sys.ConditionalOnAppProperty;
 import com.haulmont.cuba.web.security.HttpRequestFilter;
-import com.haulmont.cuba.web.security.idp.BaseIdpSessionFilter;
-import com.haulmont.cuba.web.security.idp.WebIdpConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;

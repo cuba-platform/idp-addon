@@ -18,24 +18,21 @@ package com.haulmont.addon.idp.web.security.idp;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableMap;
+import com.haulmont.addon.idp.security.IdpService;
+import com.haulmont.addon.idp.security.global.IdpSession;
 import com.haulmont.bali.util.URLEncodeUtils;
 import com.haulmont.cuba.core.global.Events;
 import com.haulmont.cuba.core.global.GlobalConfig;
 import com.haulmont.cuba.core.global.UserSessionSource;
 import com.haulmont.cuba.core.sys.ConditionalOnAppProperty;
-import com.haulmont.cuba.security.global.IdpSession;
 import com.haulmont.cuba.security.global.LoginException;
 import com.haulmont.cuba.security.global.UserSession;
-import com.haulmont.cuba.security.idp.IdpService;
 import com.haulmont.cuba.web.Connection;
 import com.haulmont.cuba.web.security.ExternalUserCredentials;
 import com.haulmont.cuba.web.security.events.AppLoggedOutEvent;
 import com.haulmont.cuba.web.security.events.AppStartedEvent;
 import com.haulmont.cuba.web.security.events.SessionHeartbeatEvent;
 import com.haulmont.cuba.web.security.events.UserSessionSubstitutedEvent;
-import com.haulmont.cuba.web.security.idp.IdpSessionPingConnector;
-import com.haulmont.cuba.web.security.idp.IdpSessionPrincipal;
-import com.haulmont.cuba.web.security.idp.WebIdpConfig;
 import com.haulmont.cuba.web.sys.RequestContext;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinService;
@@ -49,14 +46,14 @@ import javax.inject.Inject;
 import java.security.Principal;
 import java.util.Locale;
 
-import static com.haulmont.cuba.web.security.idp.IdpSessionPrincipal.IDP_SESSION_ATTRIBUTE;
+import static com.haulmont.addon.idp.web.security.idp.IdpSessionPrincipal.IDP_SESSION_ATTRIBUTE;
 
 @ConditionalOnAppProperty(property = "cuba.web.idp.enabled", value = "true")
 @ConditionalOnAppProperty(property = "cuba.web.externalAuthentication", value = "false", defaultValue = "false")
 @Component("cuba_IdpLoginLifecycleManager")
 public class IdpLoginLifecycleManager {
 
-    private static final Logger log = LoggerFactory.getLogger(com.haulmont.cuba.web.security.idp.IdpLoginLifecycleManager.class);
+    private static final Logger log = LoggerFactory.getLogger(IdpLoginLifecycleManager.class);
 
     @Inject
     protected WebIdpConfig webIdpConfig;

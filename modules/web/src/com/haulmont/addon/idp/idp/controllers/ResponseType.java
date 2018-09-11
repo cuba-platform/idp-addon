@@ -20,6 +20,7 @@ package com.haulmont.addon.idp.idp.controllers;
  * Available IDP ticket response types.
  */
 public enum ResponseType {
+
     /**
      * IDP ticket is sent using URL hash: {@code //service-provider-url#idp_ticket=value}
      */

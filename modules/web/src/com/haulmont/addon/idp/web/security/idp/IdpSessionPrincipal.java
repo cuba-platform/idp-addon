@@ -16,7 +16,7 @@
 
 package com.haulmont.addon.idp.web.security.idp;
 
-import com.haulmont.cuba.security.global.IdpSession;
+import com.haulmont.addon.idp.security.global.IdpSession;
 
 public interface IdpSessionPrincipal {
 

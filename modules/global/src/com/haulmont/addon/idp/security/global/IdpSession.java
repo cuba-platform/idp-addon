@@ -20,11 +20,12 @@ import java.io.Serializable;
 import java.util.Map;
 
 public class IdpSession implements Serializable {
-    private String id;
-    private String login;
-    private String email;
-    private String locale;
-    private Map<String, Object> attributes;
+
+    protected String id;
+    protected String login;
+    protected String email;
+    protected String locale;
+    protected Map<String, Object> attributes;
 
     public IdpSession(String id) {
         this.id = id;

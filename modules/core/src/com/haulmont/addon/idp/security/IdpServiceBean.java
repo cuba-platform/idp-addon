@@ -16,7 +16,7 @@
 
 package com.haulmont.addon.idp.security;
 
-import com.haulmont.cuba.core.global.GlobalConfig;
+import com.haulmont.addon.idp.security.global.IdpSession;
 import com.haulmont.cuba.core.global.MessageTools;
 import com.haulmont.cuba.core.global.UuidSource;
 import com.haulmont.cuba.security.app.UserSessions;
@@ -25,12 +25,9 @@ import com.haulmont.cuba.security.auth.AuthenticationDetails;
 import com.haulmont.cuba.security.auth.AuthenticationManager;
 import com.haulmont.cuba.security.auth.Credentials;
 import com.haulmont.cuba.security.entity.User;
-import com.haulmont.cuba.security.global.IdpSession;
 import com.haulmont.cuba.security.global.LoginException;
 import com.haulmont.cuba.security.global.TrustedClientOnly;
 import com.haulmont.cuba.security.global.UserSession;
-import com.haulmont.cuba.security.idp.IdpService;
-import com.haulmont.cuba.security.idp.IdpSessionStore;
 import org.apache.commons.lang3.LocaleUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,10 +44,7 @@ import java.util.stream.Collectors;
 @TrustedClientOnly
 public class IdpServiceBean implements IdpService {
 
-    private static final Logger log = LoggerFactory.getLogger(com.haulmont.cuba.security.idp.IdpServiceBean.class);
-
-    @Inject
-    protected GlobalConfig globalConfig;
+    private static final Logger log = LoggerFactory.getLogger(IdpServiceBean.class);
 
     @Inject
     protected MessageTools messageTools;

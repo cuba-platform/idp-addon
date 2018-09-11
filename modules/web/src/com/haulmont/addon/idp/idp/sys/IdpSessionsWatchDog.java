@@ -16,13 +16,13 @@
 
 package com.haulmont.addon.idp.idp.sys;
 
-import com.haulmont.addon.idp.IdpConfig;
+import com.haulmont.addon.idp.idp.config.IdpConfig;
+import com.haulmont.addon.idp.security.IdpService;
 import com.haulmont.cuba.core.sys.AppContext;
 import com.haulmont.cuba.core.sys.SecurityContext;
 import com.haulmont.cuba.security.app.TrustedClientService;
 import com.haulmont.cuba.security.global.LoginException;
 import com.haulmont.cuba.security.global.UserSession;
-import com.haulmont.cuba.security.idp.IdpService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

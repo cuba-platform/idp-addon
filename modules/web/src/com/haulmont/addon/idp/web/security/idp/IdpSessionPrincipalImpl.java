@@ -16,8 +16,7 @@
 
 package com.haulmont.addon.idp.web.security.idp;
 
-import com.haulmont.cuba.security.global.IdpSession;
-import com.haulmont.cuba.web.security.idp.IdpSessionPrincipal;
+import com.haulmont.addon.idp.security.global.IdpSession;
 
 import javax.annotation.Nullable;
 import java.security.Principal;

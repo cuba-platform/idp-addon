@@ -16,8 +16,7 @@
 
 package com.haulmont.addon.idp.security;
 
-import com.haulmont.cuba.security.global.IdpSession;
-import com.haulmont.cuba.security.idp.IdpService;
+import com.haulmont.addon.idp.security.global.IdpSession;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -28,6 +27,7 @@ import java.util.Map;
  * Session store for {@link IdpService}.
  */
 public interface IdpSessionStore {
+
     String NAME = "cuba_IdpSessionStore";
 
     String putSession(IdpSession session);

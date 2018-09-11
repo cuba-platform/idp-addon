@@ -17,10 +17,8 @@
 package com.haulmont.addon.idp.core.jmx;
 
 import com.google.gson.Gson;
-import com.haulmont.cuba.core.jmx.IdpSessionsMBean;
-import com.haulmont.cuba.security.global.IdpSession;
-import com.haulmont.cuba.security.idp.IdpSessionStore;
-import com.haulmont.cuba.security.idp.IdpSessionStore.IdpSessionInfo;
+import com.haulmont.addon.idp.security.IdpSessionStore;
+import com.haulmont.addon.idp.security.global.IdpSession;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
@@ -30,6 +28,7 @@ import java.util.stream.Collectors;
 
 @Component("cuba_IdpSessionsMBean")
 public class IdpSessions implements IdpSessionsMBean {
+
     @Inject
     protected IdpSessionStore idpSessionStore;
 
@@ -37,7 +36,7 @@ public class IdpSessions implements IdpSessionsMBean {
 
     @Override
     public String getSessionInfo(String sessionId) {
-        IdpSessionInfo session = idpSessionStore.getSessionInfo(sessionId);
+        IdpSessionStore.IdpSessionInfo session = idpSessionStore.getSessionInfo(sessionId);
         if (session == null) {
             return "Session not found";
         }
@@ -71,9 +70,9 @@ public class IdpSessions implements IdpSessionsMBean {
 
     @Override
     public List<String> getSessions() {
-        List<IdpSessionInfo> sessions = idpSessionStore.getSessions();
+        List<IdpSessionStore.IdpSessionInfo> sessions = idpSessionStore.getSessions();
         return sessions.stream()
-                .map(IdpSessionInfo::getId)
+                .map(IdpSessionStore.IdpSessionInfo::getId)
                 .collect(Collectors.toList());
     }
 

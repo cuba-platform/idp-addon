@@ -18,7 +18,7 @@ package com.haulmont.addon.idp.restapi.model;
 
 public class IdpLogoutResponse {
 
-    private String location;
+    protected String location;
 
     public IdpLogoutResponse() {
     }

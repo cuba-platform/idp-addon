@@ -17,17 +17,17 @@
 package com.haulmont.addon.idp.idp.controllers;
 
 import com.google.common.base.Strings;
-import com.haulmont.addon.idp.IdpConfig;
-import com.haulmont.addon.idp.model.AuthRequest;
-import com.haulmont.addon.idp.model.AuthResponse;
-import com.haulmont.addon.idp.model.IdpTicket;
-import com.haulmont.addon.idp.model.LocalesInfo;
-import com.haulmont.addon.idp.sys.IdpServiceLogoutCallbackInvoker;
+import com.haulmont.addon.idp.idp.config.IdpConfig;
+import com.haulmont.addon.idp.idp.model.AuthRequest;
+import com.haulmont.addon.idp.idp.model.AuthResponse;
+import com.haulmont.addon.idp.idp.model.IdpTicket;
+import com.haulmont.addon.idp.idp.model.LocalesInfo;
+import com.haulmont.addon.idp.idp.sys.IdpServiceLogoutCallbackInvoker;
+import com.haulmont.addon.idp.security.IdpService;
 import com.haulmont.bali.util.URLEncodeUtils;
 import com.haulmont.cuba.core.global.GlobalConfig;
 import com.haulmont.cuba.core.global.MessageTools;
 import com.haulmont.cuba.security.global.LoginException;
-import com.haulmont.cuba.security.idp.IdpService;
 import org.apache.http.client.utils.URIBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,7 +58,7 @@ public class IdpController {
     public static final String CUBA_IDP_COOKIE_NAME = "IDP_SESSION_ID";
     public static final String CUBA_IDP_TICKET_PARAMETER = "idp_ticket";
 
-    private static final Logger log = LoggerFactory.getLogger(com.haulmont.addon.idp.controllers.IdpController.class);
+    private static final Logger log = LoggerFactory.getLogger(IdpController.class);
 
     @Inject
     protected GlobalConfig globalConfig;

@@ -16,7 +16,7 @@
 
 package com.haulmont.addon.idp.idp.sys;
 
-import com.haulmont.addon.idp.IdpConfig;
+import com.haulmont.addon.idp.idp.config.IdpConfig;
 import com.haulmont.cuba.core.sys.AppContext;
 import com.haulmont.cuba.core.sys.SecurityContext;
 import com.haulmont.cuba.security.app.TrustedClientService;
