@@ -8,4 +8,12 @@
     <!-- Annotation-based beans -->
     <context:component-scan base-package="com.haulmont.addon.idp"/>
 
+    <bean id="idp_proxyCreator" class="com.haulmont.cuba.web.sys.remoting.WebRemoteProxyBeanCreator">
+        <property name="remoteServices">
+            <map>
+                <!-- IDP Entries -->
+                <entry key="cuba_IdpService" value="com.haulmont.addon.idp.security.IdpService"/>
+            </map>
+        </property>
+    </bean>
 </beans>

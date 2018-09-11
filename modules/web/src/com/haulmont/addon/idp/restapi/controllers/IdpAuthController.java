@@ -1,32 +1,16 @@
-/*
- * Copyright (c) 2008-2017 Haulmont.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.haulmont.addon.idp.restapi.controllers;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import com.haulmont.addon.idp.restapi.RestIdpConfig;
+import com.haulmont.addon.idp.security.global.IdpSession;
 import com.haulmont.bali.util.URLEncodeUtils;
 import com.haulmont.cuba.core.global.Configuration;
 import com.haulmont.cuba.core.sys.ConditionalOnAppProperty;
-import com.haulmont.cuba.security.global.IdpSession;
 import com.haulmont.restapi.auth.OAuthTokenIssuer;
 import com.haulmont.restapi.auth.OAuthTokenIssuer.OAuth2AccessTokenResult;
 import com.haulmont.restapi.config.RestApiConfig;
-import com.haulmont.restapi.idp.RestIdpConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
@@ -73,7 +57,7 @@ public class IdpAuthController implements InitializingBean {
 
     public static final String IDP_SESSION_ID_TOKEN_ATTRIBUTE = "idp_session_id";
 
-    private static final Logger log = LoggerFactory.getLogger(com.haulmont.restapi.idp.IdpAuthController.class);
+    private static final Logger log = LoggerFactory.getLogger(IdpAuthController.class);
 
     @Inject
     protected Configuration configuration;
