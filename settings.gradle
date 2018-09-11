@@ -1,9 +1,9 @@
 rootProject.name = 'idp'
 def modulePrefix = 'idp'
 
-include(":${modulePrefix}-global", ":${modulePrefix}-core", ":${modulePrefix}-web", ":${modulePrefix}-idp")
+include(":${modulePrefix}-global", ":${modulePrefix}-core", ":${modulePrefix}-portal", ":${modulePrefix}-web")
 
 project(":${modulePrefix}-global").projectDir = new File(settingsDir, 'modules/global')
 project(":${modulePrefix}-core").projectDir = new File(settingsDir, 'modules/core')
+project(":${modulePrefix}-portal").projectDir = new File(settingsDir, 'modules/portal')
 project(":${modulePrefix}-web").projectDir = new File(settingsDir, 'modules/web')
-project(":${modulePrefix}-idp").projectDir = new File(settingsDir, 'modules/idp')

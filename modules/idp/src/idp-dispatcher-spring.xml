@@ -56,8 +56,8 @@
     </security:authentication-manager>
 
     <security:http pattern="/**"
-                   create-session="stateless"
-                   xmlns="http://www.springframework.org/schema/security">
+          create-session="stateless"
+          xmlns="http://www.springframework.org/schema/security">
         <anonymous enabled="true"/>
 
         <!-- login & logout -->

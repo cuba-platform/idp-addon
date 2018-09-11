@@ -8,6 +8,7 @@ buildscript {
                 password(rootProject.hasProperty('repoPass') ? rootProject['repoPass'] : 'cuba123')
             }
         }
+
     }
     dependencies {
         classpath "com.haulmont.gradle:cuba-plugin:$cubaVersion"
@@ -18,8 +19,8 @@ def modulePrefix = 'idp'
 
 def globalModule = project(":${modulePrefix}-global")
 def coreModule = project(":${modulePrefix}-core")
+def portalModule = project(":${modulePrefix}-portal")
 def webModule = project(":${modulePrefix}-web")
-def idpModule = project(":${modulePrefix}-idp")
 
 def servletApi = 'javax.servlet:javax.servlet-api:3.1.0'
 
@@ -43,7 +44,7 @@ dependencies {
 
 def hsql = 'org.hsqldb:hsqldb:2.2.9'
 
-configure([globalModule, coreModule, webModule, idpModule]) {
+configure([globalModule, coreModule, webModule, portalModule]) {
     apply(plugin: 'java')
     apply(plugin: 'maven')
     apply(plugin: 'idea')
@@ -166,7 +167,7 @@ configure(webModule) {
     }
 }
 
-configure(idpModule) {
+configure(portalModule) {
 }
 
 task undeploy(type: Delete, dependsOn: ":${modulePrefix}-web:cleanConf") {
