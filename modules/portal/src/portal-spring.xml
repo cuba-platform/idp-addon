@@ -4,10 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
-    <bean id="cuba_proxyCreator" class="com.haulmont.cuba.portal.sys.remoting.PortalRemoteProxyBeanCreator">
+    <bean id="idp_proxyCreator"
+          class="com.haulmont.cuba.portal.sys.remoting.PortalRemoteProxyBeanCreator">
         <property name="remoteServices">
             <map>
-                <entry key="cuba_IdpService" value="com.haulmont.cuba.security.idp.IdpService"/>
+                <entry key="cuba_IdpService"
+                       value="com.haulmont.addon.idp.security.IdpService"/>
             </map>
         </property>
     </bean>

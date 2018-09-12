@@ -9,10 +9,11 @@
            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 	       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 
-    <context:annotation-config/>
-    <context:component-scan base-package="com.haulmont.addon.idp.restapi"/>
-
     <mvc:annotation-driven/>
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="com.haulmont.addon.idp.restapi"/>
 
     <!-- IDP auth -->
     <security:http pattern="/rest/v2/idp/**"
