@@ -25,7 +25,7 @@ import java.util.Objects;
  * Performs logout of user session when IDP session is logged out.
  * IDP server requests this controller to logout related sessions in a service.
  */
-@Controller("cuba_IdpLogoutCallbackController")
+@Controller("idp_IdpLogoutCallbackController")
 @RequestMapping("/idpc")
 public class IdpLogoutCallbackController {
 

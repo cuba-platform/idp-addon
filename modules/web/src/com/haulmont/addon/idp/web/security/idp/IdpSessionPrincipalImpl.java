@@ -8,7 +8,7 @@ import java.util.Locale;
 
 public class IdpSessionPrincipalImpl implements Principal, IdpSessionPrincipal {
 
-    private final IdpSession idpSession;
+    protected final IdpSession idpSession;
 
     public IdpSessionPrincipalImpl(IdpSession idpSession) {
         this.idpSession = idpSession;

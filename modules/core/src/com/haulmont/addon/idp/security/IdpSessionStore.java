@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public interface IdpSessionStore {
 
-    String NAME = "cuba_IdpSessionStore";
+    String NAME = "idp_IdpSessionStore";
 
     String putSession(IdpSession session);
 
@@ -40,8 +40,9 @@ public interface IdpSessionStore {
     void propagate(String sessionId);
 
     class IdpSessionTicketInfo implements Serializable {
-        private final String sessionId;
-        private final long createTs;
+
+        protected final String sessionId;
+        protected final long createTs;
 
         public IdpSessionTicketInfo(String sessionId, long createTs) {
             this.sessionId = sessionId;
@@ -67,12 +68,12 @@ public interface IdpSessionStore {
 
     class IdpSessionInfo implements Serializable {
 
-        private final String id;
-        private final String login;
-        private final String email;
-        private final String locale;
-        private final Date since;
-        private final Date lastUsed;
+        protected final String id;
+        protected final String login;
+        protected final String email;
+        protected final String locale;
+        protected final Date since;
+        protected final Date lastUsed;
 
         public IdpSessionInfo(String id, String login, String email, String locale, Date since, Date lastUsed) {
             this.id = id;

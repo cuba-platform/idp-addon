@@ -483,10 +483,11 @@ public class IdpSessionStoreBean implements IdpSessionStore {
     }
 
     protected static class IdpSessionTicketRecord implements Serializable {
-        private final String id;
-        private final String sessionId;
-        private final long since;
-        private volatile boolean active = true; // set to false when propagating removal to cluster
+
+        protected final String id;
+        protected final String sessionId;
+        protected final long since;
+        protected volatile boolean active = true; // set to false when propagating removal to cluster
 
         public IdpSessionTicketRecord(String id, String sessionId, long since) {
             this.id = id;
@@ -573,8 +574,9 @@ public class IdpSessionStoreBean implements IdpSessionStore {
     }
 
     protected static class NewSessionClusterMessage implements Serializable {
-        private final IdpSessionRecord session;
-        private final IdpSessionTicketRecord ticket;
+
+        protected final IdpSessionRecord session;
+        protected final IdpSessionTicketRecord ticket;
 
         public NewSessionClusterMessage(IdpSessionRecord session, IdpSessionTicketRecord ticket) {
             this.session = session;

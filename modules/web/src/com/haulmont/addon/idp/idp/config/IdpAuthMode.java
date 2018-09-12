@@ -18,7 +18,7 @@ public enum IdpAuthMode implements EnumClass<String> {
      */
     LDAP("LDAP");
 
-    private String id;
+    protected String id;
 
     IdpAuthMode(String id) {
         this.id = id;

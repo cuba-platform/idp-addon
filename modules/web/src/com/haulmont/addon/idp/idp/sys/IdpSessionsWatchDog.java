@@ -18,7 +18,7 @@ import java.util.List;
  * Invokes IdpService to check if IDP sessions or tickets are expired. <br>
  * Performs request to logout URLs of service providers registered in {@link IdpConfig#getServiceProviderLogoutUrls()}.
  */
-@Component("cuba_IdpSessionsWatchDog")
+@Component("idp_IdpSessionsWatchDog")
 public class IdpSessionsWatchDog {
 
     private static final Logger log = LoggerFactory.getLogger(IdpSessionsWatchDog.class);

@@ -13,7 +13,7 @@ import java.util.List;
 
 @ConditionalOnAppProperty(property = "cuba.web.idp.enabled", value = "true")
 @ConditionalOnAppProperty(property = "cuba.web.externalAuthentication", value = "false", defaultValue = "false")
-@Component("cuba_IdpLoginHttpRequestFilter")
+@Component("idp_IdpLoginHttpRequestFilter")
 public class IdpLoginHttpRequestFilter extends BaseIdpSessionFilter implements HttpRequestFilter, Ordered {
 
     @Override

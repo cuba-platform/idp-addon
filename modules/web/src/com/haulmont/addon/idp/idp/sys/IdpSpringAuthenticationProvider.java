@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * Used only as stub for Spring Security configuration.
  */
-@Component("cuba_IdpSpringAuthenticationProvider")
+@Component("idp_IdpSpringAuthenticationProvider")
 public class IdpSpringAuthenticationProvider implements AuthenticationProvider {
 
     @Override

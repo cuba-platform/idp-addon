@@ -13,7 +13,7 @@
         <property name="beans">
             <map>
                 <entry key="${cuba.webContextName}.cuba:type=IdpSessions"
-                       value-ref="cuba_IdpSessionsMBean"/>
+                       value-ref="idp_IdpSessionsMBean"/>
             </map>
         </property>
     </bean>

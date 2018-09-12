@@ -34,7 +34,7 @@ import static com.haulmont.addon.idp.web.security.idp.IdpSessionPrincipal.IDP_SE
 
 @ConditionalOnAppProperty(property = "cuba.web.idp.enabled", value = "true")
 @ConditionalOnAppProperty(property = "cuba.web.externalAuthentication", value = "false", defaultValue = "false")
-@Component("cuba_IdpLoginLifecycleManager")
+@Component("idp_IdpLoginLifecycleManager")
 public class IdpLoginLifecycleManager {
 
     private static final Logger log = LoggerFactory.getLogger(IdpLoginLifecycleManager.class);

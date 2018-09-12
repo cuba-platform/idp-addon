@@ -27,7 +27,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-@Component("cuba_IdpAuthenticationManager")
+@Component("idp_IdpAuthenticationManager")
 public class IdpLoginManager implements InitializingBean {
 
     @Inject

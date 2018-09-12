@@ -11,7 +11,8 @@
     <bean id="idp_proxyCreator" class="com.haulmont.cuba.web.sys.remoting.WebRemoteProxyBeanCreator">
         <property name="remoteServices">
             <map>
-                <entry key="cuba_IdpService" value="com.haulmont.addon.idp.security.IdpService"/>
+                <entry key="idp_IdpService"
+                       value="com.haulmont.addon.idp.security.IdpService"/>
             </map>
         </property>
     </bean>

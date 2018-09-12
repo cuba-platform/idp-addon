@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public interface IdpService {
 
-    String NAME = "cuba_IdpService";
+    String NAME = "idp_IdpService";
 
     String IDP_USER_SESSION_ATTRIBUTE = "idpSessionId";
 

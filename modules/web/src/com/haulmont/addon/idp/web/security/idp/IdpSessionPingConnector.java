@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
-@Component("cuba_IdpSessionPingConnector")
+@Component("idp_IdpSessionPingConnector")
 public class IdpSessionPingConnector {
 
     private static final Logger log = LoggerFactory.getLogger(IdpSessionPingConnector.class);

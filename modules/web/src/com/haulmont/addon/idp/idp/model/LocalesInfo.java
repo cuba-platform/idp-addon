@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class LocalesInfo implements Serializable {
 
-    private boolean localeSelectVisible;
+    protected boolean localeSelectVisible;
 
-    private Map<String, String> locales;
+    protected Map<String, String> locales;
 
     public boolean isLocaleSelectVisible() {
         return localeSelectVisible;

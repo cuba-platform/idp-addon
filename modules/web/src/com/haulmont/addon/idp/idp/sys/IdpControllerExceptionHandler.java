@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Logs all exceptions of IDP controllers and returns 500 (Internal Server Error) error page to clients.
  */
 @ControllerAdvice("com.haulmont.addon.idp.controllers")
-@Component("cuba_IdpControllerExceptionHandler")
+@Component("idp_IdpControllerExceptionHandler")
 public class IdpControllerExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(IdpControllerExceptionHandler.class);

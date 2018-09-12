@@ -14,7 +14,7 @@ public enum ResponseType {
      */
     SERVER_TICKET("server-ticket");
 
-    private String code;
+    protected String code;
 
     ResponseType(String code) {
         this.code = code;

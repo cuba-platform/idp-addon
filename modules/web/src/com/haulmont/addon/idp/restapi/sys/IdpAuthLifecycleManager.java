@@ -48,7 +48,7 @@ import static com.haulmont.addon.idp.restapi.controllers.IdpAuthController.IDP_S
  * Component that synchronizes REST API token and IDP session life cycles.
  */
 @ConditionalOnAppProperty(property = "cuba.rest.idp.enabled", value = "true")
-@Component("cuba_IdpAuthLifecycleManager")
+@Component("idp_IdpAuthLifecycleManager")
 public class IdpAuthLifecycleManager implements InitializingBean {
 
     private static final Logger log = LoggerFactory.getLogger(IdpAuthLifecycleManager.class);

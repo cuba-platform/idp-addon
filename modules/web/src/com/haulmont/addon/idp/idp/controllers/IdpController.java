@@ -36,7 +36,7 @@ import java.util.stream.Collectors;
 /**
  * IDP login form endpoint.
  */
-@Controller("cuba_IdpController")
+@Controller("idp_IdpController")
 public class IdpController {
 
     public static final String CUBA_IDP_COOKIE_NAME = "IDP_SESSION_ID";
@@ -65,7 +65,7 @@ public class IdpController {
     protected List<Pattern> serviceProviderUrlMasks;
 
     @PostConstruct
-    private void init() {
+    protected void init() {
         serviceProviderUrlMasks = idpConfig.getServiceProviderUrlMasks()
                 .stream()
                 .map(Pattern::compile)

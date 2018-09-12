@@ -8,7 +8,7 @@
           class="com.haulmont.cuba.portal.sys.remoting.PortalRemoteProxyBeanCreator">
         <property name="remoteServices">
             <map>
-                <entry key="cuba_IdpService"
+                <entry key="idp_IdpService"
                        value="com.haulmont.addon.idp.security.IdpService"/>
             </map>
         </property>

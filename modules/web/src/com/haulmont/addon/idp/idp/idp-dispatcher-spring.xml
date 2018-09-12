@@ -20,7 +20,7 @@
     <mvc:resources mapping="/**" location="/idp/"/>
 
     <mvc:interceptors>
-        <bean id="cuba_IdpSecurityContextInterceptor"
+        <bean id="idp_IdpSecurityContextInterceptor"
               class="com.haulmont.addon.idp.idp.sys.IdpSecurityContextInterceptor"/>
     </mvc:interceptors>
 
@@ -29,17 +29,17 @@
     <bean id="idpScheduler" class="org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler">
         <property name="daemon" value="true"/>
         <property name="poolSize" value="1"/>
-        <property name="threadNamePrefix" value="cuba_idp_scheduler-"/>
+        <property name="threadNamePrefix" value="idp_scheduler-"/>
     </bean>
 
     <task:scheduled-tasks scheduler="idpScheduler">
-        <task:scheduled ref="cuba_IdpSessionsWatchDog" method="cleanupExpiredSessions"
+        <task:scheduled ref="idp_IdpSessionsWatchDog" method="cleanupExpiredSessions"
                         initial-delay="60000"
                         fixed-delay="${cuba.idp.sessionExpirationCheckIntervalMs?:30000}"/>
     </task:scheduled-tasks>
 
     <security:authentication-manager>
-        <security:authentication-provider ref="cuba_IdpSpringAuthenticationProvider"/>
+        <security:authentication-provider ref="idp_IdpSpringAuthenticationProvider"/>
     </security:authentication-manager>
 
     <security:http pattern="/**"
