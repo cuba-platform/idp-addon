@@ -15,8 +15,9 @@
  *
  */
 
-package com.haulmont.addon.idp.idp.sys;
+package com.haulmont.addon.idp.web.sys;
 
+import com.haulmont.addon.idp.idp.sys.IdpServlet;
 import com.haulmont.cuba.core.sys.AbstractWebAppContextLoader;
 import com.haulmont.cuba.core.sys.servlet.ServletRegistrationManager;
 import com.haulmont.cuba.core.sys.servlet.events.ServletContextInitializedEvent;

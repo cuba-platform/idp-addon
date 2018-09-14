@@ -55,7 +55,7 @@
         <property name="cuba.restSpringContextConfig"
                   value="+com/haulmont/addon/idp/restapi/rest-dispatcher-spring.xml"/>
         <property name="cuba.idpSpringContextConfig"
-                  value="com/haulmont/addon/idp/idp/idp-dispatcher-spring.xml"/>
+                  value="com/haulmont/addon/idp/idp-dispatcher-spring.xml"/>
         <property name="cuba.windowConfig"
                   value="+com/haulmont/addon/idp/web-screens.xml"/>
         <property name="cuba.menuConfig"

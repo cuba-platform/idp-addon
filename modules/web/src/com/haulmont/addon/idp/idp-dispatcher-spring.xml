@@ -28,20 +28,17 @@
 	       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
            http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd">
 
-    <context:annotation-config/>
+    <bean class="com.haulmont.cuba.core.sys.CubaPropertyPlaceholderConfigurer"/>
 
-    <context:component-scan base-package="com.haulmont.addon.idp"/>
+    <context:annotation-config/>
+    <context:component-scan base-package="com.haulmont.addon.idp.idp"/>
 
     <mvc:annotation-driven/>
-
     <mvc:resources mapping="/**" location="/idp/"/>
 
     <mvc:interceptors>
-        <bean id="idp_IdpSecurityContextInterceptor"
-              class="com.haulmont.addon.idp.idp.sys.IdpSecurityContextInterceptor"/>
+        <bean id="idp_IdpSecurityContextInterceptor" class="com.haulmont.addon.idp.idp.sys.IdpSecurityContextInterceptor"/>
     </mvc:interceptors>
-
-    <bean class="com.haulmont.cuba.core.sys.CubaPropertyPlaceholderConfigurer"/>
 
     <bean id="idpScheduler" class="org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler">
         <property name="daemon" value="true"/>
@@ -50,7 +47,8 @@
     </bean>
 
     <task:scheduled-tasks scheduler="idpScheduler">
-        <task:scheduled ref="idp_IdpSessionsWatchDog" method="cleanupExpiredSessions"
+        <task:scheduled ref="idp_IdpSessionsWatchDog"
+                        method="cleanupExpiredSessions"
                         initial-delay="60000"
                         fixed-delay="${cuba.idp.sessionExpirationCheckIntervalMs?:30000}"/>
     </task:scheduled-tasks>
@@ -60,8 +58,8 @@
     </security:authentication-manager>
 
     <security:http pattern="/**"
-                   create-session="stateless"
-                   xmlns="http://www.springframework.org/schema/security">
+          create-session="stateless"
+          xmlns="http://www.springframework.org/schema/security">
         <anonymous enabled="true"/>
 
         <!-- login & logout -->

@@ -23,9 +23,11 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
     <!-- Annotation-based beans -->
-    <context:component-scan base-package="com.haulmont.addon.idp"/>
+    <context:component-scan base-package="com.haulmont.addon.idp.web"/>
 
-    <bean id="idp_proxyCreator" class="com.haulmont.cuba.web.sys.remoting.WebRemoteProxyBeanCreator">
+    <bean id="idp_proxyCreator"
+          class="com.haulmont.cuba.web.sys.remoting.WebRemoteProxyBeanCreator">
+        <property name="serverSelector" ref="cuba_ServerSelector"/>
         <property name="remoteServices">
             <map>
                 <entry key="idp_IdpService"
