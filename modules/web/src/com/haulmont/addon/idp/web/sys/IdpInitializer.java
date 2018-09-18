@@ -25,6 +25,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.DelegatingFilterProxy;
+import org.springframework.web.servlet.FrameworkServlet;
 
 import javax.inject.Inject;
 import javax.servlet.*;
@@ -36,6 +37,7 @@ public class IdpInitializer {
     public static final String NAME = "idp_IdpInitializer";
 
     protected static final String IDP_SERVLET_NAME = "idp";
+    protected static final String IDP_SERVLET_MAPPING = "/idp/*";
 
     @Inject
     protected ServletRegistrationManager servletRegistrationManager;
@@ -54,15 +56,15 @@ public class IdpInitializer {
 
         ServletRegistration.Dynamic idpServletRegistration = servletCtx.addServlet(IDP_SERVLET_NAME, idpServlet);
         idpServletRegistration.setLoadOnStartup(4);
-        idpServletRegistration.addMapping("/idp/*");
+        idpServletRegistration.addMapping(IDP_SERVLET_MAPPING);
 
         DelegatingFilterProxy idpSpringSecurityFilterChain = new DelegatingFilterProxy();
-        idpSpringSecurityFilterChain.setContextAttribute("org.springframework.web.servlet.FrameworkServlet.CONTEXT.idp");
+        idpSpringSecurityFilterChain.setContextAttribute(FrameworkServlet.SERVLET_CONTEXT_PREFIX + "." + IDP_SERVLET_NAME);
         idpSpringSecurityFilterChain.setTargetBeanName("springSecurityFilterChain");
 
         FilterRegistration.Dynamic idpSpringSecurityFilterChainReg =
                 servletCtx.addFilter("idpSpringSecurityFilterChain", idpSpringSecurityFilterChain);
 
-        idpSpringSecurityFilterChainReg.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST), true, "/idp/*");
+        idpSpringSecurityFilterChainReg.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST), true, IDP_SERVLET_MAPPING);
     }
 }
