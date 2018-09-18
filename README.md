@@ -25,15 +25,19 @@ once in a browser session.
 
 This section is a short version of example from documentation ([link](https://doc.cuba-platform.com/manual-6.9/sso_example.html)).
 
-1. Create two projects and add the `idp` add-on in to them
-2. Configure aliases in the `hosts` file:
+1. Create two projects named "fish" and "chips".
+2. Add the `idp` add-on in to them:
+
+    `com.haulmont.addon.idp:idp-global:0.1.0`
+
+3. Configure aliases in the `hosts` file:
 
 | Address       | Alias         |
 |:------------- |:------------- |
 | 127.0.0.1     | fish          |
 | 127.0.0.1     | chips         |
 
-3. Configure IDP for the Fish project in `web-app.properties` file of the `web` module:
+4. Configure IDP for the Fish project in `web-app.properties` file of the `web` module:
 
 ```
 cuba.idp.serviceProviderUrls = http://fish:8081/app/,http://chips:8082/app/
@@ -46,7 +50,7 @@ cuba.web.idp.baseUrl = http://fish:8081/app/idp/
 cuba.web.idp.trustedServicePassword = mdgh12SSX_pic2
 ```
 
-4. Configure IDP for the "Chips" project in `web-app.properties` file of the `web` module:
+5. Configure IDP for the "Chips" project in `web-app.properties` file of the `web` module:
 
 ```
 cuba.webAppUrl = http://chips:8082/app/
@@ -55,17 +59,16 @@ cuba.web.idp.baseUrl = http://fish:8081/app/idp/
 cuba.web.idp.trustedServicePassword = mdgh12SSX_pic2
 ```
 
+6. Start the Fish server by launching its `tomcat/bin/startup.*` script or via Gradle: `gradlew start`.
 
-5. Start the Fish server by launching its `tomcat/bin/startup.*` script.
-
-6. Go to [http://fish:8081/app/](http://fish:8081/app/) in your web browser. You will be redirected to the IDP login page. 
+7. Go to [http://fish:8081/app/](http://fish:8081/app/) in your web browser. You will be redirected to the IDP login page. 
 Log in with the `admin / admin` credentials. Create a new user, for example `u1`.
 
-7. Start the Chips server by launching its `tomcat/bin/startup.*` script.
+8. Start the Chips server by launching its `tomcat/bin/startup.*` script.
 
-8. Go to [http://chips:8082/app/](http://chips:8082/app/) in the same web browser. If you are still logged in to the 
+9. Go to [http://chips:8082/app/](http://chips:8082/app/) in the same web browser. If you are still logged in to the 
 Fish application, you will be automatically logged in as admin to Chips. Create the same u1 user 
 (password does not matter) in the `Chips` application.
 
-9. Now you can log in as `admin` or `u1` to both applications via the single login form, and if you are logged in one 
+10. Now you can log in as `admin` or `u1` to both applications via the single login form, and if you are logged in one 
 application, the login process for the second application will be automatic, bypassing the login form.
