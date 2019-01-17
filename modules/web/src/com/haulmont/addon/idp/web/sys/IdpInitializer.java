@@ -55,6 +55,10 @@ public class IdpInitializer {
         }
 
         ServletRegistration.Dynamic idpServletRegistration = servletCtx.addServlet(IDP_SERVLET_NAME, idpServlet);
+        if (idpServletRegistration == null) {
+            throw new RuntimeException("Unable to register IDP servlet in a context. " +
+                    "Servlet with the same name is already registered");
+        }
         idpServletRegistration.setLoadOnStartup(4);
         idpServletRegistration.addMapping(IDP_SERVLET_MAPPING);
 
