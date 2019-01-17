@@ -63,7 +63,7 @@ public class IdpInitializer {
         idpServletRegistration.addMapping(IDP_SERVLET_MAPPING);
 
         DelegatingFilterProxy idpSpringSecurityFilterChain = new DelegatingFilterProxy();
-        idpSpringSecurityFilterChain.setContextAttribute(FrameworkServlet.SERVLET_CONTEXT_PREFIX + "." + IDP_SERVLET_NAME);
+        idpSpringSecurityFilterChain.setContextAttribute(FrameworkServlet.SERVLET_CONTEXT_PREFIX + IDP_SERVLET_NAME);
         idpSpringSecurityFilterChain.setTargetBeanName("springSecurityFilterChain");
 
         FilterRegistration.Dynamic idpSpringSecurityFilterChainReg =
