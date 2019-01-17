@@ -24,7 +24,6 @@ import com.haulmont.addon.idp.idp.model.AuthRequest;
 import com.haulmont.addon.idp.security.IdpService;
 import com.haulmont.cuba.core.global.ClientType;
 import com.haulmont.cuba.core.global.Messages;
-import com.haulmont.cuba.core.global.PasswordEncryption;
 import com.haulmont.cuba.security.auth.LoginPasswordCredentials;
 import com.haulmont.cuba.security.auth.TrustedClientCredentials;
 import com.haulmont.cuba.security.global.LoginException;
@@ -58,8 +57,6 @@ public class IdpLoginManager implements InitializingBean {
     @Inject
     protected IdpAuthConfig authenticationConfig;
     @Inject
-    protected PasswordEncryption passwordEncryption;
-    @Inject
     protected Messages messages;
 
     protected LdapContextSource ldapContextSource;
@@ -78,7 +75,7 @@ public class IdpLoginManager implements InitializingBean {
             case STANDARD: {
                 LoginPasswordCredentials credentials = new LoginPasswordCredentials(
                         auth.getUsername(),
-                        passwordEncryption.getPlainHash(auth.getPassword()),
+                        auth.getPassword(),
                         sessionLocale);
 
                 credentials.setClientType(ClientType.WEB);
