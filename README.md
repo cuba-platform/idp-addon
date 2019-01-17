@@ -2,7 +2,7 @@
 
 ## Overview
 
-The add-on allows a user to log in to the multiple running applications by entering a single login name and password 
+The add-on allows to log-in into multiple running applications by entering login and password 
 once in a browser session.
 
 ![IDP Login Form](./img/idp_login_form.png)
@@ -19,14 +19,14 @@ once in a browser session.
 
     `com.haulmont.addon.idp:idp-global:0.1.0`
 
-2. Configure add-on with application properties ([documentation](https://doc.cuba-platform.com/manual-6.9/sso.html))
+2. Configure add-on with application properties ([documentation](https://doc.cuba-platform.com/manual-7.0/sso.html))
 
 ## Demo
 
-This section is a short version of example from documentation ([link](https://doc.cuba-platform.com/manual-6.9/sso_example.html)).
+This section is a short version of example from documentation ([link](https://doc.cuba-platform.com/manual-7.0/sso_example.html)).
 
 1. Create two projects named "fish" and "chips".
-2. Add the `idp` add-on in to them:
+2. Add the `idp` with the following coordinates:
 
     `com.haulmont.addon.idp:idp-global:0.1.0`
 
