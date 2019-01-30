@@ -5,7 +5,7 @@ before_install:
   - chmod +x ./gradlew
 
 script:
-  - ./gradlew --no-daemon assemble test javadoc
+  - ./gradlew --no-daemon assemble test
 
 cache:
   directories:
