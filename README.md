@@ -1,5 +1,9 @@
 # CUBA IDP Add-on
 
+[![license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
+[![Build Status](https://travis-ci.org/cuba-platform/idp-addon.svg?branch=master)](https://travis-ci.org/cuba-platform/idp-addon)
+[![Documentation](https://img.shields.io/badge/documentation-online-03a9f4.svg)](https://github.com/cuba-platform/idp-addon/wiki)
+
 ## Overview
 
 Single-sign-on (SSO) for CUBA applications allows a user to log in to the multiple 
@@ -33,7 +37,6 @@ authentication, IDP redirects back to the SP application and the user
 transparently logs in to SP.
 
 Read addon Wiki for an additional information: [link](https://github.com/cuba-platform/idp-addon/wiki).
-
 
 ## Compatibility with platform versions
 
