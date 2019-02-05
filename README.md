@@ -49,7 +49,7 @@ Read addon Wiki for an additional information: [link](https://github.com/cuba-pl
 1. Add **idp-addon** as an application component to your projects 
 (change the version part if needed):
 
-> `com.haulmont.addon.idp:idp-global:0.1.x`
+    `com.haulmont.addon.idp:idp-global:0.1.x`
 
 2. Configure add-on with application properties 
 ([Wiki](https://github.com/cuba-platform/idp-addon/wiki#identity-provider-sso-setup))
@@ -65,40 +65,40 @@ at the same time, Chips will be a Service Provider.
 
 1. Add the **idp-addon** via Studio with the following coordinates (replace x with bug-fix number):
 
-> `com.haulmont.addon.idp:idp-global:0.1.x`
+    `com.haulmont.addon.idp:idp-global:0.1.x`
 
 2. Configure aliases in the `hosts` file:
 
-| Address       | Alias         |
-|:------------- |:------------- |
-| 127.0.0.1     | fish          |
-| 127.0.0.1     | chips         |
+    | Address       | Alias         |
+    |:------------- |:------------- |
+    | 127.0.0.1     | fish          |
+    | 127.0.0.1     | chips         |
 
 3. Configure IDP for the Fish project in `web-app.properties` file of the `web` 
 module:
 
-```
-cuba.webAppUrl = http://fish:8081/app/
+    ```
+    cuba.webAppUrl = http://fish:8081/app/
 
-cuba.idp.serviceProviderUrls = http://fish:8081/app/,http://chips:8082/app/
-cuba.idp.serviceProviderLogoutUrls = http://fish:8081/app/dispatch/idpc/logout,http://chips:8082/app/dispatch/idpc/logout
-cuba.idp.trustedServicePassword = mdgh12SSX_pic2
+    cuba.idp.serviceProviderUrls = http://fish:8081/app/,http://chips:8082/app/
+    cuba.idp.serviceProviderLogoutUrls = http://fish:8081/app/dispatch/idpc/logout,http://chips:8082/app/dispatch/idpc/logout
+    cuba.idp.trustedServicePassword = mdgh12SSX_pic2
 
-cuba.web.idp.enabled = true
-cuba.web.idp.baseUrl = http://fish:8081/app/idp/
-cuba.web.idp.trustedServicePassword = mdgh12SSX_pic2
-```
+    cuba.web.idp.enabled = true
+    cuba.web.idp.baseUrl = http://fish:8081/app/idp/
+    cuba.web.idp.trustedServicePassword = mdgh12SSX_pic2
+    ```
 
 4. Configure IDP for the "Chips" project in `web-app.properties` file of the `web` 
 module:
 
-```
-cuba.webAppUrl = http://chips:8082/app/
+    ```
+    cuba.webAppUrl = http://chips:8082/app/
 
-cuba.web.idp.enabled = true
-cuba.web.idp.baseUrl = http://fish:8081/app/idp/
-cuba.web.idp.trustedServicePassword = mdgh12SSX_pic2
-```
+    cuba.web.idp.enabled = true
+    cuba.web.idp.baseUrl = http://fish:8081/app/idp/
+    cuba.web.idp.trustedServicePassword = mdgh12SSX_pic2
+    ```
 
 5. Start the Fish server by launching its `tomcat/bin/startup.*` script or
 via Gradle: `gradlew start`.
