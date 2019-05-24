@@ -70,7 +70,7 @@ dependencies {
     appComponent("com.haulmont.cuba:cuba-global:$cubaVersion")
 }
 
-def hsql = 'org.hsqldb:hsqldb:2.2.9'
+def hsql = 'org.hsqldb:hsqldb:2.4.1'
 
 configure([globalModule, coreModule, webModule, portalModule]) {
     apply(plugin: 'java')
@@ -129,7 +129,6 @@ configure(coreModule) {
         appName = "${modulePrefix}-core"
         appJars(modulePrefix + '-global', modulePrefix + '-core')
     }
-
 
     task startDb(description: 'Starts local HSQLDB server', type: CubaHsqlStart) {
         dbName = 'idp'

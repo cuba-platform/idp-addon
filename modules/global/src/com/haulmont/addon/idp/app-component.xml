@@ -65,6 +65,8 @@
         <property name="cuba.mainMessagePack"
                   value="+com.haulmont.addon.idp.web"/>
         <property name="cuba.web.externalHttpFilterByPassUrls"
-                  value="+/idp/"/>
+                  value="+/idp/,"/>
+        <property name="cuba.web.externalRestBypassPatterns"
+                  value="+/idp/,"/>
     </module>
 </app-component>
