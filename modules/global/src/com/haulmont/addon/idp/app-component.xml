@@ -69,4 +69,7 @@
         <property name="cuba.web.externalRestBypassPatterns"
                   value="+/idp/,"/>
     </module>
+    <module name="portal" dependsOn="global" blocks="portal">
+        <artifact name="idp-portal" appJar="true"/>
+    </module>
 </app-component>
