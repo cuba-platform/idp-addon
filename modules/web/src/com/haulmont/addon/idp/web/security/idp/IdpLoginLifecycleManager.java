@@ -102,9 +102,9 @@ public class IdpLoginLifecycleManager {
     @EventListener
     protected void onSessionSubstituted(UserSessionSubstitutedEvent event) {
         if (webIdpConfig.getIdpEnabled()) {
-            String idpSessionId = IdpService.IDP_USER_SESSION_ATTRIBUTE;
-            if (event.getSourceSession().getAttribute(idpSessionId) != null) {
-                event.getSubstitutedSession().setAttribute(IdpService.IDP_USER_SESSION_ATTRIBUTE, idpSessionId);
+            String idpSessionId = event.getSourceSession().getAttribute(IDP_USER_SESSION_ATTRIBUTE);
+            if (idpSessionId != null) {
+                event.getSubstitutedSession().setAttribute(IDP_USER_SESSION_ATTRIBUTE, idpSessionId);
             }
         }
     }
