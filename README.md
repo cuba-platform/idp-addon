@@ -42,6 +42,7 @@ Read addon Wiki for an additional information: [link](https://github.com/cuba-pl
 
 | Add-on        | Platform      |
 |:------------- |:------------- |
+| 0.2.0         | 7.1.0         |
 | 0.1.1         | 7.0.0         |
 
 ## Installation and configuration
@@ -49,7 +50,7 @@ Read addon Wiki for an additional information: [link](https://github.com/cuba-pl
 1. Add **idp-addon** as an application component to your projects 
 (change the version part if needed):
 
-    `com.haulmont.addon.idp:idp-global:0.1.1`
+    `com.haulmont.addon.idp:idp-global:0.2.0`
 
 2. Configure add-on with application properties 
 ([Wiki](https://github.com/cuba-platform/idp-addon/wiki#identity-provider-sso-setup))
@@ -65,7 +66,7 @@ at the same time, Chips will be a Service Provider.
 
 1. Add the **idp-addon** via Studio with the following coordinates (replace x with bug-fix number):
 
-    `com.haulmont.addon.idp:idp-global:0.1.1`
+    `com.haulmont.addon.idp:idp-global:0.2.0`
 
 2. Configure aliases in the `hosts` file:
 
