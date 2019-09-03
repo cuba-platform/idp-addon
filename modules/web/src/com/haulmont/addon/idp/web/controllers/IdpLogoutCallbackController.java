@@ -64,7 +64,7 @@ public class IdpLogoutCallbackController {
                        @RequestParam(name = "trustedServicePassword") String trustedServicePassword,
                        HttpServletResponse response) {
 
-        if ((!webAuthConfig.getExternalAuthentication() && !webIdpConfig.getIdpEnabled())
+        if ((!webIdpConfig.getIdpEnabled())
                 || Strings.isNullOrEmpty(webIdpConfig.getIdpBaseURL())) {
             log.warn("IDP options is not set, but logout callback url is requested");
             response.setStatus(HttpStatus.BAD_REQUEST.value());

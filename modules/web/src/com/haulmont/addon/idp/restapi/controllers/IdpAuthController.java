@@ -22,12 +22,11 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.haulmont.addon.idp.restapi.RestIdpConfig;
 import com.haulmont.addon.idp.security.global.IdpSession;
+import com.haulmont.addon.restapi.api.auth.OAuthTokenIssuer;
+import com.haulmont.addon.restapi.api.config.RestApiConfig;
 import com.haulmont.bali.util.URLEncodeUtils;
 import com.haulmont.cuba.core.global.Configuration;
 import com.haulmont.cuba.core.sys.ConditionalOnAppProperty;
-import com.haulmont.restapi.auth.OAuthTokenIssuer;
-import com.haulmont.restapi.auth.OAuthTokenIssuer.OAuth2AccessTokenResult;
-import com.haulmont.restapi.config.RestApiConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
@@ -127,7 +126,7 @@ public class IdpAuthController implements InitializingBean {
         String idpTicket = parameters.get("idp_ticket");
         String ipAddress = request.getRemoteAddr();
 
-        OAuth2AccessTokenResult tokenResult =
+        OAuthTokenIssuer.OAuth2AccessTokenResult tokenResult =
                 authenticate(idpTicket, request.getLocale(), ipAddress, parameters);
 
         return ResponseEntity.ok(tokenResult.getAccessToken());
@@ -191,8 +190,8 @@ public class IdpAuthController implements InitializingBean {
                 "&sp=" + URLEncodeUtils.encodeUtf8(redirectUrl);
     }
 
-    protected OAuth2AccessTokenResult authenticate(String idpTicket, Locale locale,
-                                                   String ipAddress, Map<String, String> parameters) {
+    protected OAuthTokenIssuer.OAuth2AccessTokenResult authenticate(String idpTicket, Locale locale,
+                                                                    String ipAddress, Map<String, String> parameters) {
         IdpSession idpSession = getIdpSession(idpTicket);
         if (idpSession == null) {
             log.info("REST API authentication failed for IDP ticket: {} {}", idpTicket, ipAddress);

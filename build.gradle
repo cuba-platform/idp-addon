@@ -16,7 +16,7 @@
  */
 
 buildscript {
-    ext.cubaVersion = '7.0.0'
+    ext.cubaVersion = '7.1.0'
     repositories {
         jcenter()
         maven { url "https://dl.bintray.com/cuba-platform/main" }
@@ -35,13 +35,20 @@ def webModule = project(":${modulePrefix}-web")
 
 def servletApi = 'javax.servlet:javax.servlet-api:3.1.0'
 
+configurations {
+    bom
+}
+dependencies {
+    bom("com.haulmont.cuba:cuba-global:$cubaVersion")
+}
+
 apply(plugin: 'idea')
 apply(plugin: 'cuba')
 
 cuba {
     artifact {
         group = 'com.haulmont.addon.idp'
-        version = '0.1'
+        version = '0.2.0'
         isSnapshot = true
     }
     tomcat {
@@ -68,6 +75,7 @@ limitations under the License.
 
 dependencies {
     appComponent("com.haulmont.cuba:cuba-global:$cubaVersion")
+    appComponent('com.haulmont.addon.restapi:restapi-global:7.1.0')
 }
 
 def hsql = 'org.hsqldb:hsqldb:2.4.1'
@@ -162,6 +170,7 @@ configure(webModule) {
 
     dependencies {
         compile(globalModule)
+        compile(bom['org.springframework.security:spring-security-core'])
         compileOnly(servletApi)
     }
 
