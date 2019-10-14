@@ -104,6 +104,7 @@ configure([globalModule, coreModule, webModule, portalModule]) {
     apply(plugin: 'maven')
     apply(plugin: 'idea')
     apply(plugin: 'cuba')
+    apply(plugin: 'addon-gradle-plugin')
 
     dependencies {
         testCompile('junit:junit:4.12')
