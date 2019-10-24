@@ -6,53 +6,83 @@
 
 ## Overview
 
-Single-sign-on (SSO) for CUBA applications allows a user to log in to the multiple 
-running applications by entering a single login name and password once 
+Single-sign-on (SSO) for CUBA applications allows a user to log in to the multiple
+running applications by entering a single login name and password once
 in a browser session.
 
 ![IDP Login Form](./img/idp_login_form.png)
 
 When using SSO, there are two types of applications:
 
-- **Identity Provider (IDP)** is an application that provides user authentication. 
-It contains a login form for entering user credentials and checks the credentials 
-against the list of registered users. Only one Identity Provider is allowed in 
+- **Identity Provider (IDP)** is an application that provides user authentication.
+It contains a login form for entering user credentials and checks the credentials
+against the list of registered users. Only one Identity Provider is allowed in
 an SSO environment.
 
-- **Service Provider (SP)** is a regular application that redirects to IDP for 
-user authentication. SP should contain the same list of users as IDP 
-(passwords do not matter though). SP provides authorization using CUBA 
-security roles and access groups. There may be any number of Service Providers in 
+- **Service Provider (SP)** is a regular application that redirects to IDP for
+user authentication. SP should contain the same list of users as IDP
+(passwords do not matter though). SP provides authorization using CUBA
+security roles and access groups. There may be any number of Service Providers in
 an SSO environment.
 
 An application can be an Identity Provider and a Service Provider at the same time,
 so you don’t have to setup a dedicated IDP.
 
-> CUBA SSO uses custom HTTP-based protocol and currently does not provide 
+> CUBA SSO uses custom HTTP-based protocol and currently does not provide
 integration with systems using standard authentication protocols like SAML or OIDC.
 
-In SSO environment, when a user enters a Service Provider URL, the SP redirects 
-to the IDP page for entering login name and password. After successful 
-authentication, IDP redirects back to the SP application and the user 
+In SSO environment, when a user enters a Service Provider URL, the SP redirects
+to the IDP page for entering login name and password. After successful
+authentication, IDP redirects back to the SP application and the user
 transparently logs in to SP.
 
 Read addon Wiki for an additional information: [link](https://github.com/cuba-platform/idp-addon/wiki).
 
-## Compatibility with platform versions
+## Installation
 
-| Add-on        | Platform      |
-|:------------- |:------------- |
-| 0.2.0         | 7.1.0         |
-| 0.1.1         | 7.0.0         |
+The add-on can be added to your project in one of the ways described below. Installation from the Marketplace is the simplest way. The last version of the add-on compatible with the used version of the platform will be installed.
+Also, you can install the add-on by coordinates choosing the required version of the add-on from the table.
 
-## Installation and configuration
+In case you want to install the add-on by manual editing or by building from sources see the complete add-ons installation guide in [CUBA Platform documentation](https://doc.cuba-platform.com/manual-latest/manual.html#app_components_usage).
 
-1. Add **idp-addon** as an application component to your projects 
-(change the version part if needed):
+### From the Marketplace
 
-    `com.haulmont.addon.idp:idp-global:0.2.0`
+1. Open your application in CUBA Studio. Check the latest version of CUBA Studio on the [CUBA Platform site](https://www.cuba-platform.com/download/previous-studio/).
+2. Go to *CUBA -> Marketplace* in the main menu.
 
-2. Configure add-on with application properties 
+ ![marketplace](img/marketplace.png)
+
+3. Find the *IDP* add-on there.
+
+ ![addons](img/addons.png)
+
+4. Click *Install* and apply the changes.
+The add-on corresponding to the used platform version will be installed.
+
+### By Coordinates
+
+1. Open your application in CUBA Studio. Check the latest version of CUBA Studio on the [CUBA Platform site](https://www.cuba-platform.com/download/previous-studio/).
+2. Go to *CUBA -> Marketplace* in the main menu.
+3. Click the icon in the upper-right corner.
+
+ ![by-coordinates](img/by-coordinates.png)
+
+4. Paste the add-on coordinates in the corresponding field as follows:
+
+ `com.haulmont.addon.idp:idp-global:<add-on version>`
+
+ where `<add-on version>` is compatible with the used version of the CUBA platform.
+
+ | Platform Version | Add-on Version |
+|------------------|----------------|
+| 7.1.X            | 0.2.0          |
+| 7.0.X            | 0.1.1          |
+
+5. Click *Install* and apply the changes. The add-on will be installed to your project.
+
+## Configuration
+
+Configure add-on with application properties
 ([Wiki](https://github.com/cuba-platform/idp-addon/wiki#identity-provider-sso-setup))
 
 ## Demo
@@ -60,8 +90,8 @@ Read addon Wiki for an additional information: [link](https://github.com/cuba-pl
 This section is a short version of example from
 [Wiki](https://github.com/cuba-platform/idp-addon/wiki/Single-Sign-On-Example).
 
-We consider an example of setting up SSO for two applications: 
-Fish and Chips. Fish will be an Identity Provider and Service Provider 
+We consider an example of setting up SSO for two applications:
+Fish and Chips. Fish will be an Identity Provider and Service Provider
 at the same time, Chips will be a Service Provider.
 
 1. Add the **idp-addon** via Studio with the following coordinates (replace x with bug-fix number):
@@ -75,7 +105,7 @@ at the same time, Chips will be a Service Provider.
     | 127.0.0.1     | fish          |
     | 127.0.0.1     | chips         |
 
-3. Configure IDP for the Fish project in `web-app.properties` file of the `web` 
+3. Configure IDP for the Fish project in `web-app.properties` file of the `web`
 module:
 
     ```
@@ -90,7 +120,7 @@ module:
     cuba.web.idp.trustedServicePassword = mdgh12SSX_pic2
     ```
 
-4. Configure IDP for the "Chips" project in `web-app.properties` file of the `web` 
+4. Configure IDP for the "Chips" project in `web-app.properties` file of the `web`
 module:
 
     ```
@@ -104,18 +134,18 @@ module:
 5. Start the Fish server by launching its `tomcat/bin/startup.*` script or
 via Gradle: `gradlew start`.
 
-6. Go to [http://fish:8081/app/](http://fish:8081/app/) in your web browser. 
-You will be redirected to the IDP login page. Log in with the `admin / admin` 
+6. Go to [http://fish:8081/app/](http://fish:8081/app/) in your web browser.
+You will be redirected to the IDP login page. Log in with the `admin / admin`
 credentials. Create a new user, for example `u1`.
 
 7. Start the Chips server by launching its `tomcat/bin/startup.*` script or
 via Gradle: `gradlew start`.
 
-8. Go to [http://chips:8082/app/](http://chips:8082/app/) in the same web browser. 
-If you are still logged in to the Fish application, you will be automatically 
-logged in as admin to Chips. Create the same u1 user (password does not matter) 
+8. Go to [http://chips:8082/app/](http://chips:8082/app/) in the same web browser.
+If you are still logged in to the Fish application, you will be automatically
+logged in as admin to Chips. Create the same u1 user (password does not matter)
 in the `Chips` application.
 
 Now you can log in as `admin` or `u1` to both applications via the single login form,
-and if you are logged in one application, the login process for the second 
+and if you are logged in one application, the login process for the second
 application will be automatic, bypassing the login form.
