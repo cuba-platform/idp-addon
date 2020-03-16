@@ -319,8 +319,16 @@ public class IdpController {
         return localesInfo;
     }
 
+    private String removeLastSlash(String url) {
+        if (url.endsWith("\\") || url.endsWith("/")) {
+            return url.substring(0, url.length() - 1);
+        }
+        return url;
+    }
+
     protected boolean isValidRedirectURL(String redirectUrl) {
-        if (idpConfig.getServiceProviderUrls().contains(redirectUrl)) {
+        if (idpConfig.getServiceProviderUrls().stream()
+                .anyMatch(u -> removeLastSlash(u).equalsIgnoreCase(removeLastSlash(redirectUrl)))) {
             return true;
         }
 
