@@ -207,6 +207,8 @@ public abstract class BaseIdpSessionFilter implements Filter {
                 if ("GET".equals(httpRequest.getMethod())
                         && !StringUtils.startsWith(httpRequest.getRequestURI(), httpRequest.getContextPath() + "/PUSH")) {
                     httpResponse.sendRedirect(getIdpRedirectUrl(httpRequest));
+                } else {
+                    chain.doFilter(request, response);
                 }
                 return;
             }
