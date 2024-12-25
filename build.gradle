@@ -97,7 +97,7 @@ dependencies {
     appComponent("com.haulmont.addon.restapi:restapi-global:$cubaVersion")
 }
 
-def hsql = 'org.hsqldb:hsqldb:2.4.1'
+def hsql = 'org.hsqldb:hsqldb:2.5.2'
 
 configure([globalModule, coreModule, webModule, portalModule]) {
     apply(plugin: 'java')
